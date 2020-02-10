@@ -10,7 +10,7 @@
 	$nNumber = $_REQUEST['nNumber'];
 	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" . $nNumber . "')
 						BEGIN
-							UPDATE SCANS SET image = '" . $pid . "' WHERE nNumber = '" . $nNumber . "';
+							UPDATE SCANS SET pid = '" . $pid . "' WHERE nNumber = '" . $nNumber . "';
 						END
 						ELSE
 						BEGIN
