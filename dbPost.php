@@ -8,15 +8,18 @@
 
 	$image = $_POST['image'];
 	$nNumber = $_POST['nNumber'];
-	
-	$stmt = sqlsrv_query($conn, "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" + nNumber + "')
+	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" + nNumber + "')
 						BEGIN
 							UPDATE SCANS SET image = '" + image + "' WHERE nNumber = '" + nNumber + "';
 						END
 						ELSE
 						BEGIN
 						   INSERT INTO SCANS VALUES ('" + nNumber + "', '" + image + "')
-						END");  
+						END"
+						
+	echo $query;				
+	
+	$stmt = sqlsrv_query($conn, );  					
 	if ( $stmt )  
 	{  
 		/* Iterate through the result set printing a row of data upon each iteration.*/ 
