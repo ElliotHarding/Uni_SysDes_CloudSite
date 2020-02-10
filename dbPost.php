@@ -6,9 +6,17 @@
  
 	$conn = sqlsrv_connect($serverName, array( "UID"=>$uid, "PWD"=>$pwd, "Database"=>$databaseName));  
 
-	$tsql = $_POST['request'];
-
-	$stmt = sqlsrv_query($conn, $tsql);  
+	$image = $_POST['image'];
+	$nNumber = $_POST['nNumber'];
+	
+	$stmt = sqlsrv_query($conn, "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" + nNumber + "')
+						BEGIN
+							UPDATE SCANS SET image = '" + image + "' WHERE nNumber = '" + nNumber + "';
+						END
+						ELSE
+						BEGIN
+						   INSERT INTO SCANS VALUES ('" + nNumber + "', '" + image + "')
+						END");  
 	if ( $stmt )  
 	{  
 		/* Iterate through the result set printing a row of data upon each iteration.*/ 
