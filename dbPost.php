@@ -6,15 +6,15 @@
  
 	$conn = sqlsrv_connect($serverName, array( "UID"=>$uid, "PWD"=>$pwd, "Database"=>$databaseName));  
 
-	$image = $_REQUEST['image'];
+	$pid = $_REQUEST['pid'];
 	$nNumber = $_REQUEST['nNumber'];
 	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" . $nNumber . "')
 						BEGIN
-							UPDATE SCANS SET image = '" . $image . "' WHERE nNumber = '" . $nNumber . "';
+							UPDATE SCANS SET image = '" . $pid . "' WHERE nNumber = '" . $nNumber . "';
 						END
 						ELSE
 						BEGIN
-						   INSERT INTO SCANS VALUES ('" . $nNumber . "', '" . $image . "')
+						   INSERT INTO SCANS VALUES ('" . $nNumber . "', '" . $pid . "')
 						END";
 						
 	echo $query;
