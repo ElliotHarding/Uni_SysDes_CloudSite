@@ -18,7 +18,6 @@
 						END";
 						
 	echo $query;
-	echo $query;	
 	
 	$stmt = sqlsrv_query($conn, $query);  					
 	if ( $stmt )  
