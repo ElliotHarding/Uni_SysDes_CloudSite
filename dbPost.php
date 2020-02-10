@@ -8,13 +8,13 @@
 
 	$image = $_POST['image'];
 	$nNumber = $_POST['nNumber'];
-	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" + nNumber + "')
+	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" . nNumber . "')
 						BEGIN
-							UPDATE SCANS SET image = '" + image + "' WHERE nNumber = '" + nNumber + "';
+							UPDATE SCANS SET image = '" . image . "' WHERE nNumber = '" . nNumber . "';
 						END
 						ELSE
 						BEGIN
-						   INSERT INTO SCANS VALUES ('" + nNumber + "', '" + image + "')
+						   INSERT INTO SCANS VALUES ('" . nNumber . "', '" . image . "')
 						END";
 						
 	echo $query;
