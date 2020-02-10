@@ -17,7 +17,8 @@
 						   INSERT INTO SCANS VALUES ('" + nNumber + "', '" + image + "')
 						END";
 						
-	echo $query;				
+	echo $query;
+	echo $query;	
 	
 	$stmt = sqlsrv_query($conn, $query);  					
 	if ( $stmt )  
@@ -36,6 +37,6 @@
 	}  
 	
 	/* Free statement and connection resources. */  
-	sqlsrv_free_stmt( $stmt);  
+	sqlsrv_free_stmt($stmt);  
 	sqlsrv_close( $conn);  
 ?>
