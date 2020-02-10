@@ -6,8 +6,8 @@
  
 	$conn = sqlsrv_connect($serverName, array( "UID"=>$uid, "PWD"=>$pwd, "Database"=>$databaseName));  
 
-	$image = $_POST['image'];
-	$nNumber = $_POST['nNumber'];
+	$image = $_REQUEST['image'];
+	$nNumber = $_REQUEST['nNumber'];
 	$query = "IF EXISTS (SELECT * FROM SCANS WHERE nNumber = '" . $nNumber . "')
 						BEGIN
 							UPDATE SCANS SET image = '" . $image . "' WHERE nNumber = '" . $nNumber . "';
