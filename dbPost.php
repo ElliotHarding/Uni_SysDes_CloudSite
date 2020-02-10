@@ -15,11 +15,11 @@
 						ELSE
 						BEGIN
 						   INSERT INTO SCANS VALUES ('" + nNumber + "', '" + image + "')
-						END"
+						END";
 						
 	echo $query;				
 	
-	$stmt = sqlsrv_query($conn, );  					
+	$stmt = sqlsrv_query($conn, $query);  					
 	if ( $stmt )  
 	{  
 		/* Iterate through the result set printing a row of data upon each iteration.*/ 
