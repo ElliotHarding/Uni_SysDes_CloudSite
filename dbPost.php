@@ -17,8 +17,6 @@
 						   INSERT INTO SCANS VALUES ('" . $nNumber . "', '" . $pid . "')
 						END";
 						
-	echo $query;
-	
 	$stmt = sqlsrv_query($conn, $query);  					
 	if ( $stmt )  
 	{  
